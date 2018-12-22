@@ -27,6 +27,8 @@ ListView minusList;
 ListView posList;
 Button addBtn;
 static public boolean refresh;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
