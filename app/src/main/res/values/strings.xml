@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">فِلس</string>
+    <string name="Amount_of_Money">المبلغ</string>
+    <string name="goToAdd">اضافة</string>
+    <string name="positive">ارباح</string>
+    <string name="minus">مصروفات</string>
+    <string name="minus2">Minus</string>
+    <string name="positive2">Positive</string>
+    <string name="amount">Amount</string>
+    <string name="date">Date</string>
+    <string name="save">حفظ</string>
+    <string name="NegativeSign">-</string>
+    <string name="PositiveSign">+</string>
+    <string name="balance">balance</string>
+    <string name="showID">showID</string>
+    <string name="YES">نعم احذف</string>
+    <string name="NO">لا ,لاتحذف</string>
+    <string name="DeletingAlertMessage"> سيتم حذف المبلغ المدخل وتعديل بينات الرصيد</string>
+    <string name="DeleteAlertTitle">متاكد تبي تحذف هالعملية؟</string>
+    <string name="DeleteAllAlertTitle">متاكد تبي تحذف جميع العمليات؟</string>
+    <string name="DeletingAllAlertMessage"> سيتم حذف سيتم حذف جميع العمليات ويصبح رصيدك 0.0</string>
+    <string name="YourBalance">"رصيدك \n الحالي"</string>
+</resources>
