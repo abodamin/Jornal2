@@ -48,20 +48,20 @@ public class minusCostumeListAdapter extends CursorAdapter {
 
         switch (imageTypeInflater){
             case "res":
-                iconOpType.setImageResource(R.drawable.restaurant3);
+                iconOpType.setImageResource(R.drawable.restaurant);
                 break;
             case "cafe":
-                iconOpType.setImageResource(R.drawable.coffee3);
+                iconOpType.setImageResource(R.drawable.coffee);
                 break;
             case "gas":
-                iconOpType.setImageResource(R.drawable.gas3);
+                iconOpType.setImageResource(R.drawable.gas);
                 break;
             case "enter":
                 iconOpType.setImageResource(R.drawable.entertainment3);
                 break;
 
             default:
-                iconOpType.setImageResource(R.drawable.down);
+                iconOpType.setImageResource(R.drawable.decrease);
 
         }
 

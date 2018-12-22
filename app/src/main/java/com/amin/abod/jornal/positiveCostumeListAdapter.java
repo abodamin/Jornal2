@@ -53,7 +53,7 @@ public class positiveCostumeListAdapter extends CursorAdapter {
         Amount.setText(amountInflater);
         operationDate.setText(dateInflater);
 
-        iconOpType.setImageResource(R.drawable.up34);
+        iconOpType.setImageResource(R.drawable.up);
 
         view.setOnLongClickListener(new View.OnLongClickListener() {
             @Override

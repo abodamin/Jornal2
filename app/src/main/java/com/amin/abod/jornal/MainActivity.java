@@ -61,7 +61,7 @@ static public boolean refresh;
     @Override
     protected void onResume() {
         super.onResume();
-        refresh =true;
+        refresh = true;
         refreshLists(refresh);
         refresh = false;
     }
