@@ -97,6 +97,7 @@ public class minusCostumeListAdapter extends CursorAdapter {
                 builder.create();
                 builder.show();
 
+
                 return true;
             }
 

@@ -30,12 +30,17 @@ public class Add extends AppCompatActivity {
         Button saveBtn = findViewById(R.id.saveChangesButton);
         final EditText amountText = findViewById(R.id.amountText);
         final TextView showBalance = findViewById(R.id.showBalance);
+        final TextView desription = findViewById(R.id.Description);
+
         final RadioButton Pos = findViewById(R.id.radioButtonPos);
         final RadioButton Neg = findViewById(R.id.radioButtonNeg);
+
         final ImageView resImg = findViewById(R.id.Restaurant);
         final ImageView cafeImg = findViewById(R.id.Cafe);
         final ImageView gasImg = findViewById(R.id.Gas);
         final ImageView enterImg = findViewById(R.id.Entertainment);
+        final ImageView other = findViewById(R.id.Other);
+
         final View group = findViewById(R.id.group);
 
 
@@ -73,7 +78,8 @@ public class Add extends AppCompatActivity {
                 gasImg.setBackgroundColor(Color.parseColor("#ffffe2"));
                 cafeImg.setBackgroundColor(Color.parseColor("#ffffe2"));
                 enterImg.setBackgroundColor(Color.parseColor("#ffffe2"));
-
+                other.setBackgroundColor(Color.parseColor("#ffffe2"));
+                desription.setVisibility(View.INVISIBLE);
                 imageType = "res";
             }
         });
@@ -81,11 +87,12 @@ public class Add extends AppCompatActivity {
         cafeImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                cafeImg.setBackgroundColor(Color.GRAY);
                 resImg.setBackgroundColor(Color.parseColor("#ffffe2"));
                 gasImg.setBackgroundColor(Color.parseColor("#ffffe2"));
-                cafeImg.setBackgroundColor(Color.GRAY);
                 enterImg.setBackgroundColor(Color.parseColor("#ffffe2"));
-
+                other.setBackgroundColor(Color.parseColor("#ffffe2"));
+                desription.setVisibility(View.INVISIBLE);
                 imageType = "cafe";
             }
         });
@@ -93,11 +100,12 @@ public class Add extends AppCompatActivity {
         gasImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                resImg.setBackgroundColor(Color.parseColor("#ffffe2"));
                 gasImg.setBackgroundColor(Color.GRAY);
+                resImg.setBackgroundColor(Color.parseColor("#ffffe2"));
                 cafeImg.setBackgroundColor(Color.parseColor("#ffffe2"));
                 enterImg.setBackgroundColor(Color.parseColor("#ffffe2"));
-
+                other.setBackgroundColor(Color.parseColor("#ffffe2"));
+                desription.setVisibility(View.INVISIBLE);
                 imageType = "gas";
             }
         });
@@ -105,12 +113,28 @@ public class Add extends AppCompatActivity {
         enterImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                enterImg.setBackgroundColor(Color.GRAY);
                 resImg.setBackgroundColor(Color.parseColor("#ffffe2"));
                 gasImg.setBackgroundColor(Color.parseColor("#ffffe2"));
                 cafeImg.setBackgroundColor(Color.parseColor("#ffffe2"));
-                enterImg.setBackgroundColor(Color.GRAY);
-
+                other.setBackgroundColor(Color.parseColor("#ffffe2"));
+                desription.setVisibility(View.INVISIBLE);
                 imageType = "enter";
+            }
+        });
+
+        other.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                other.setBackgroundColor(Color.GRAY);
+                resImg.setBackgroundColor(Color.parseColor("#ffffe2"));
+                gasImg.setBackgroundColor(Color.parseColor("#ffffe2"));
+                cafeImg.setBackgroundColor(Color.parseColor("#ffffe2"));
+                enterImg.setBackgroundColor(Color.parseColor("#ffffe2"));
+
+                desription.setVisibility(View.VISIBLE);
+                //imageType = "enter";
             }
         });
 
