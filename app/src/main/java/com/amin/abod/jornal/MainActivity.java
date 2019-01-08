@@ -2,10 +2,12 @@ package com.amin.abod.jornal;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+
 
 public class MainActivity extends AppCompatActivity {
 Operation operation2 = new Operation(this);
@@ -14,6 +16,7 @@ positiveCostumeListAdapter p;
 ListView minusList;
 ListView posList;
 Button addBtn;
+FloatingActionButton FAB;
 static public boolean refresh;
 
 
@@ -22,10 +25,10 @@ static public boolean refresh;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        addBtn = findViewById(R.id.addButton);
-
         minusList = findViewById(R.id.minusList);
         posList = findViewById(R.id.posList);
+
+        FAB = findViewById(R.id.FAB);
 
         refresh = false;
 
@@ -35,12 +38,13 @@ static public boolean refresh;
         p = new positiveCostumeListAdapter(this, operation2.getRecords(1));
         posList.setAdapter(p);
 
-        addBtn.setOnClickListener(new View.OnClickListener() {
+        FAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Add.class)); //guess what? never tried this before and made it in one shot BAM الحمدلله
+                startActivity(new Intent(getApplicationContext(), Add.class));
             }
         });
+
 
 
     }
