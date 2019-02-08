@@ -1,12 +1,19 @@
 package com.amin.abod.jornal;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -49,7 +56,45 @@ static public boolean refresh;
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.the_menu , menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = R.id.deleteAll;   //chosen ID from drop down menu in action bar
+        if(id == R.id.deleteAll) {
+           operation2.DeleteAllOperations();
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void deletingDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+        builder.setCancelable(true);
+        builder.setTitle("Delete ALL");
+
+        builder.setPositiveButton("نعم احذف", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                operation2.DeleteAllOperations();
+            }
+        });
+
+
+        builder.setNegativeButton("لا لاتحذف", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel(); // do nothing
+            }
+        });
+
+        builder.create();
+        builder.show();
+    }
 
     @Override
     protected void onResume() {

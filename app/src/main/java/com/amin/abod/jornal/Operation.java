@@ -158,7 +158,8 @@ public class Operation extends SQLiteOpenHelper{
     //method to delete(Drop) OPERATIONS table
     public void DeleteAllOperations() {
         SQLiteDatabase db = this.getReadableDatabase();
-        db.execSQL("DROP TABLE IF EXISTS "+ OPERATIONS_Table);
+//        db.execSQL("DELETE * FROM TEBLE"+ OPERATIONS_Table);
+        db.delete(OPERATIONS_Table, null,null);
     }
 
 }
