@@ -3,6 +3,7 @@ package com.amin.abod.jornal;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.opengl.Visibility;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -28,6 +29,8 @@ public class Add extends AppCompatActivity {
         setContentView(R.layout.activity_add);
 
         Button saveBtn = findViewById(R.id.saveChangesButton);
+        FloatingActionButton FABsave = findViewById(R.id.FABsave);
+
         final EditText amountText = findViewById(R.id.amountText);
         final TextView showBalance = findViewById(R.id.showBalance);
         final TextView desription = findViewById(R.id.Description);
@@ -142,7 +145,7 @@ public class Add extends AppCompatActivity {
         String showingBalance = String.valueOf(balance);
         showBalance.setText(showingBalance);
 
-        saveBtn.setOnClickListener(new View.OnClickListener() {
+        FABsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //here where we add to DB
@@ -179,5 +182,7 @@ public class Add extends AppCompatActivity {
 
             }
         });
+
+
     }
 }
