@@ -36,12 +36,14 @@ public class minusCostumeListAdapter extends CursorAdapter {
         TextView Amount = (TextView) view.findViewById(R.id.Amount);
         TextView operationDate = (TextView) view.findViewById(R.id.operationDate);
         ImageView iconOpType = view.findViewById(R.id.iconOpType);
+        TextView decription = view.findViewById(R.id.Description);
 
         //use the cursor to query the DB and get desired rows .. e.g. amountInflater will take the result and fill the text view (Amount)
         String amountInflater = cursor.getString(cursor.getColumnIndexOrThrow("amount"));
         String dateInflater = cursor.getString(cursor.getColumnIndexOrThrow("Date"));
         final String IDinflater = cursor.getString(cursor.getColumnIndexOrThrow("_id"));
         String imageTypeInflater = cursor.getString(cursor.getColumnIndexOrThrow("image"));
+        String decripInflater = cursor.getString(cursor.getColumnIndexOrThrow("description"));
 
         Amount.setText(amountInflater);
         operationDate.setText(dateInflater);
@@ -62,8 +64,12 @@ public class minusCostumeListAdapter extends CursorAdapter {
 
             default:
                 iconOpType.setImageResource(R.drawable.decrease);
+                decription.setText(decripInflater);
+                decription.setVisibility(View.VISIBLE);
+                break;
 
         }
+
 
 
         view.setOnLongClickListener(new View.OnLongClickListener() {

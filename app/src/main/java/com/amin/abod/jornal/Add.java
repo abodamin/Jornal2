@@ -28,7 +28,7 @@ public class Add extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
-        Button saveBtn = findViewById(R.id.saveChangesButton);
+
         FloatingActionButton FABsave = findViewById(R.id.FABsave);
 
         final EditText amountText = findViewById(R.id.amountText);
@@ -150,7 +150,7 @@ public class Add extends AppCompatActivity {
             public void onClick(View view) {
                 //here where we add to DB
                 boolean hint;       //helps in Toast messages
-
+                String theDesc = desription.getText().toString().trim();
                 readText = amountText.getText().toString().trim();         //read amount of money to be added or withdraw.
 
                 if(!TextUtils.isEmpty(readText) && Pos.isChecked()){       //to indicate Positive operation & not an empty amount field.
@@ -163,7 +163,7 @@ public class Add extends AppCompatActivity {
                 }else if(!TextUtils.isEmpty(readText) && Neg.isChecked()){      //to indicate Negative operation & not an empty amount field.
                     double validity = (int) operation.calculateTotalBalance();
                     if (validity > 0) {    //check if there is enough balance.
-                        hint = operation.insertNegOperation(Double.parseDouble(readText),imageType);//returning value tells us if things are being set alright or no
+                        hint = operation.insertNegOperation(Double.parseDouble(readText),imageType , theDesc);//returning value tells us if things are being set alright or no
                         imageType = "Default";
                         if (hint) {
                             Toast.makeText(getApplicationContext(), "تم تسجيل العملية", Toast.LENGTH_SHORT).show();

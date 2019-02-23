@@ -24,10 +24,11 @@ public class Operation extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
     sqLiteDatabase.execSQL("create table "+ OPERATIONS_Table + " ( " +
             "_id INTEGER PRIMARY KEY AUTOINCREMENT,"+
-            " amount INTEGER," +
-            " type INTEGER," +
-            " image TEXT,"+
-            " Date TEXT ) " );
+            " amount INTEGER," +    //amount of money
+            " type INTEGER," +      //is it positive or negative operation
+            " image TEXT,"+         //text to know what image to display
+            " description TEXT,"+   //small description of the operation
+            " Date TEXT ) " );      //date of operation
     }
 
     @Override
@@ -52,6 +53,8 @@ public class Operation extends SQLiteOpenHelper{
 
         //IMAGE
 
+        //Description
+        cv.put("description", "whatever");
 
         //CHECK
         result = db.insert(OPERATIONS_Table,null,cv);
@@ -61,7 +64,7 @@ public class Operation extends SQLiteOpenHelper{
             return true;
     }
 
-    public boolean insertNegOperation(double amountAdded ,String imageType){
+    public boolean insertNegOperation(double amountAdded ,String imageType, String desc){
         long result;
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -70,7 +73,8 @@ public class Operation extends SQLiteOpenHelper{
         cv.put("amount",amountAdded);
         cv.put("type",0);       //type specifier .. 0 for negative, 1 for positive
 
-
+        //Description
+        cv.put("description",desc);
 
         //DATE
         SimpleDateFormat sdf = new SimpleDateFormat("hh:mm aa | EEE "); //time format
